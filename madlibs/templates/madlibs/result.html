@@ -1,0 +1,15 @@
+{% extends "madlibs/base.html" %}
+{% block body %}
+<h1 class="mb-3">{{ submission.story.title }}</h1>
+
+<div class="card">
+  <div class="card-body">
+    <p class="fs-5 mb-0">{{ submission.rendered_text|linebreaksbr }}</p>
+  </div>
+</div>
+
+<div class="d-flex gap-2 mt-3">
+  <a class="btn btn-success" href="{% url 'madlibs:play' %}">Play Again</a>
+  <a class="btn btn-secondary" href="{% url 'madlibs:submissions' %}">View Submissions</a>
+</div>
+{% endblock %}

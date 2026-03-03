@@ -1,0 +1,24 @@
+{% extends "madlibs/base.html" %}
+{% block body %}
+<h1 class="mb-3">Play</h1>
+
+<form method="POST" class="row g-3">
+  {% csrf_token %}
+
+  {% for field in form %}
+    <div class="col-md-6">
+      <label class="form-label fw-bold">{{ field.label }}</label>
+      {{ field }}
+      {% if field.errors %}
+      <!-- I had to look up how to go about the playing, this was the way I found that looked best.  -->
+        <div class="text-danger small">{{ field.errors|striptags }}</div>
+      {% endif %}
+    </div>
+  {% endfor %}
+
+  <div class="col-12 d-flex gap-2 mt-2">
+    <button class="btn btn-success" type="submit">Generate Story</button>
+    <a class="btn btn-secondary" href="{% url 'madlibs:home' %}">Back</a>
+  </div>
+</form>
+{% endblock %}

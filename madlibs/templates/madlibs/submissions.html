@@ -1,0 +1,20 @@
+{% extends "madlibs/base.html" %}
+{% block body %}
+<h1 class="mb-3">Submissions</h1>
+
+{% if submissions %}
+  <div class="list-group">
+    {% for s in submissions %}
+      <a class="list-group-item list-group-item-action" href="{% url 'madlibs:result' s.id %}">
+        <div class="d-flex justify-content-between">
+          <div><strong>{{ s.story.title }}</strong></div>
+          <small class="text-muted">{{ s.created_at }}</small>
+        </div>
+      </a>
+    {% endfor %}
+  </div>
+{% else %}
+  <p class="lead">No submissions yet. Go play!</p>
+  <a class="btn btn-success" href="{% url 'madlibs:play' %}">Play</a>
+{% endif %}
+{% endblock %}

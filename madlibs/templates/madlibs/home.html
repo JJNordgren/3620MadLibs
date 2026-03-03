@@ -1,0 +1,8 @@
+{% extends "madlibs/base.html" %}
+{% block body %}
+<div class="text-center">
+  <h1 class="mb-3">Mad Lib Generator</h1>
+  <p class="lead mb-4">Fill in 7 words. Get a random story. Laugh responsibly.</p>
+  <a class="btn btn-success btn-lg" href="{% url 'madlibs:play' %}">Play Now</a>
+</div>
+{% endblock %}
